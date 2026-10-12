@@ -153,4 +153,12 @@ node scripts/check-output.mjs projects/my-model/project.json
 
 检查包括原始解码 PCM 样本保留、视频完整解码与帧数、PPT 状态、演示静止/运动/尾帧、双栏共同时钟、素材引用和 native round-trip。原声保留是指解码为 48 kHz 单声道 PCM 后的样本，不是源文件字节不变。隔离导入检查验证路径重映射与旧首页条目保留；文件检查不等同于剪映 GUI 播放测试。
 
-官方素材可访问不等于可无限制转载，发布前核实其使用条件。仓库当前未声明整体项目许可证；第三方 codec 的 MIT 许可与各依赖自己的许可单独适用。请勿提交 API 密钥、账号、配音、个人工程或本机路径配置。
+官方素材可访问不等于可无限制转载，发布前核实其使用条件。请勿提交 API 密钥、账号、配音、个人工程或本机路径配置。
+
+## 许可证
+
+本项目的原创代码和文档采用 **[MIT 许可证](LICENSE)**，允许使用、修改、分发和商用，要求保留版权与许可声明。软件按原样提供，不提供保证。
+
+- `assets/codec/jy-draftc.cpp` 为第三方组件，保留原作者 `wenshui330` 的版权声明和 [MIT 许可证](assets/codec/LICENSE.txt)，本项目许可证不替代其原有声明。
+- `assets/showcase/` 下的截图与动图包含 World Labs 的演示画面，**不属于本项目 MIT 授权范围**。其来源与权利说明见 [SOURCES.md](assets/showcase/SOURCES.md)。
+- FFmpeg、sharp、剪映及其他外部依赖遵循各自的许可证或使用条款；本项目 MIT 许可不授予这些外部组件的额外权利。

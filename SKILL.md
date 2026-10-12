@@ -1,6 +1,7 @@
 ---
 name: world-model-video
 description: "制作或修改世界模型科普视频：先查官方资料与演示素材并交付旁白，用户提供配音后制作统一风格 PPT 图解、同步演示与可编辑剪映三轨草稿。适用于换模型复用同一视频制作流程。"
+license: MIT
 metadata:
   version: "1.0.0"
 ---
