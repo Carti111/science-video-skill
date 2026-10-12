@@ -1,6 +1,6 @@
 {
   "name": "science-video-skill",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "private": true,
   "description": "A narration-first world-model explainer workflow with synchronized video and editable Jianying drafts",
