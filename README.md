@@ -6,6 +6,24 @@
 
 这是一个 **Codex Skill**，不是一键生成视频的网站。目前主要围绕世界模型介绍设计：先交付文稿，用户完成配音后，再按真实音频制作同步画面和工程。仓库名是 `science-video-skill`，调用名仍为 **`$world-model-video`**。
 
+## 效果展示：Marble 科普视频
+
+以下画面截取自实际完成的 **World Labs Marble** 科普视频，展示 PPT 图解与官方演示合成后的效果，不是单独的 PPT 模板。
+
+**模型与厂商介绍**：深色背景、统一排版，以及与讲解配合的演示画面。
+
+![Marble 科普成片：模型与厂商介绍](assets/showcase/marble-introduction.jpg)
+
+**文字淡入与同步对比**：这段 8 秒无声动图展示大块文字出现，以及 Collider Mesh 与 Gaussian Splats 演示的共同起播时钟。GIF 为网页展示降低了分辨率和帧率；原成片为 1280 × 720、30 fps。
+
+![Marble 科普成片片段：文字淡入与网格、高斯泼溅同步对比](assets/showcase/marble-comparison.gif)
+
+**机器人仿真案例**：页面文字与演示配合，并明确区分环境生成和外部物理计算。
+
+![Marble 科普成片：机器人接触与堆叠测试](assets/showcase/marble-robotics.jpg)
+
+展示中的模型演示来自 World Labs 的 [Marble 官方介绍](https://www.worldlabs.ai/blog/marble-world-model) 与 [机器人案例](https://www.worldlabs.ai/case-studies/1-robotics)。这里只展示科普视频的制作效果，不意味着本项目训练或运行了 Marble，也不意味着 Marble 独立完成了全部物理计算。具体素材与截取时间见 [展示素材出处](assets/showcase/SOURCES.md)。
+
 ## 制作流程
 
 ```text
@@ -86,7 +104,7 @@ npm install
 | 时间同步、底片和演示渲染 | Node.js 24、sharp、支持 H.264 编码的 FFmpeg |
 | 原生剪映工程 | Windows 剪映、匹配版本的 native codec、本机路径配置 |
 
-公共仓库**不包含** FFmpeg、codec 的 `.exe`、剪映 DLL、本机 `.env`、配音、演示视频和个人工程。这些依赖和素材需在本机准备。
+除上面的少量效果展示外，公共仓库**不包含** FFmpeg、codec 的 `.exe`、剪映 DLL、本机 `.env`、配音、原始演示视频和个人工程。这些依赖和素材需在本机准备。
 
 通用配置在 `assets/runtime-profile.json`。把机器相关设置写入 **`assets/runtime-profile.local.json`**（已被 Git 忽略），例如：
 
