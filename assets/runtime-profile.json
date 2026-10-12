@@ -1,0 +1,10 @@
+{
+  "nodePath": "node",
+  "nodeModules": "node_modules",
+  "ffmpegPath": "ffmpeg",
+  "codecPath": "assets/codec/jy-draftc.exe",
+  "jianyingInstallDir": "",
+  "testedJianyingVersion": "11.5.0.14471",
+  "draftRoot": "",
+  "indexPath": ""
+}

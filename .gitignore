@@ -1,0 +1,17 @@
+node_modules/
+.env
+.env.*
+!.env.example
+assets/runtime-profile.local.json
+*.exe
+*.dll
+*.obj
+*.o
+*.pdb
+*.ilk
+*.log
+projects/
+build/
+output/
+.DS_Store
+Thumbs.db

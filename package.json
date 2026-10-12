@@ -1,0 +1,9 @@
+{
+  "name": "science-video-skill",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A narration-first world-model explainer workflow with synchronized video and editable Jianying drafts",
+  "type": "module",
+  "engines": {"node": ">=24"},
+  "dependencies": {"sharp": "0.35.5"}
+}

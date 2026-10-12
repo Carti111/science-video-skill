@@ -1,0 +1,44 @@
+---
+name: world-model-video
+description: "制作或修改世界模型科普视频：先查官方资料与演示素材并交付旁白，用户提供配音后制作统一风格 PPT 图解、同步演示与可编辑剪映三轨草稿。适用于换模型复用同一视频制作流程。"
+---
+
+# 世界模型科普视频
+
+## 工作约定
+
+使用中文与用户协作。制作形式为 PPT 图解、模型演示视频和旁白。按当前请求判断处于哪个阶段，不重复已经完成的工作。用户只要求讨论时，不创建视频或工程。
+
+全程直接读取和修改文件，不控制屏幕、鼠标、键盘或应用窗口。新建独立版本；修改现有工程时读取最新文件并保留用户字幕、动效和剪辑。Skill 本身不授予额外权限，外部目录写入仍按工具权限执行。
+
+## 第一阶段：资料、素材和旁白
+
+1. 确认模型、厂商、受众、重点和目标时长。已有上下文足够就继续，不重复提问。通常为 60 至 120 秒，具体服从用户要求。
+2. 按 [research-and-content.md](references/research-and-content.md) 查官方资料。素材顺序为官方演示视频、官方图片，再讨论其他补充。先确认可以展示的真实能力，再写旁白。
+3. 写清厂商与模型关系，用一句话简单介绍厂商。技术名词适当保留英文并给中文解释。没有证据时不宣称“最强”或把外部物理引擎的作用归给模型。
+4. 按 [visual-style.md](references/visual-style.md) 规划页面和大块文字，不机械固定页数。调用当前可用的演示文稿制作能力完成 editable PPT 时遵守其实际文件格式要求。
+5. 交付完整一键粘贴旁白稿、简明分镜和官方素材出处。使用 `scripts/init-project.mjs` 创建项目记录，再按 [project-format.md](references/project-format.md) 更新实际内容、素材和阶段状态。
+6. 将状态设为 `awaiting_narration`。等待用户提供配音，不能擅自生成替代音色、固定最终秒数或交付音画未对齐的最终草稿。
+
+## 第二阶段：配音、画面和剪映工程
+
+1. 找到用户指明的音频，测量实际长度。读取第一阶段的项目记录。配音存在时以真实音频为时间依据，不按字数推算最终时间点。
+2. 阅读 [timing-and-render.md](references/timing-and-render.md)，取得句子时间。优先读取用户在剪映生成配音时的文本与音频片段时间线；没有时间记录时使用可用的转录或对齐工具，或让用户提供时间文件。不要操作屏幕取得信息。
+3. 在 `project.json` 中设置配音路径、句子索引和实际渲染的页面图片，再执行 `scripts/sync-narration.mjs`。脚本保留原声样本，插入短停顿并统一音频、页面、字幕的时间。
+4. 执行 `scripts/render-video.mjs` 生成静音 PPT 底片、独立演示媒体和带旁白预览。标题立即出现，正文按大块淡入。每页初始画面至少静止 1.5 秒，演示结束至少停留约 1 秒；这些是个人默认值，用户指定其他值时更新项目配置。对比视频共用时钟，不让左侧先播放而右侧从头起播。
+5. 阅读 [jianying-draft.md](references/jianying-draft.md)。使用 `scripts/build-draft.mjs` 输出三轨工程包。手动导入包包含全部媒体、目标版本说明和路径重新映射工具。用户选择直接生成时，再通过 `scripts/register-draft.mjs` 写入本机草稿目录和首页登记文件。
+6. 按 [verification.md](references/verification.md) 校验后交付。可选字幕单独输出 SRT；没有用户要求时不增加字幕轨道。记录真实验证范围，不把文件检查描述为已在剪映播放测试。
+
+## 工具和依赖
+
+运行 `.mjs` 使用 Node.js 24 或当前已验证 runtime。仓库 `npm install` 提供 sharp，也可用当前 workspace dependency 工具定位已有 runtime。通用默认值见 [assets/runtime-profile.json](assets/runtime-profile.json)；机器相关路径写入被 Git 忽略的 `assets/runtime-profile.local.json`，或通过项目 `runtime` 字段覆盖。不要把本机路径、API 密钥和用户媒体提交到仓库。
+
+剪映本地适配器只验证过 Windows 剪映专业版 `11.5.0.14471`。仓库保留 codec 源码、MIT 归属和经过清理的 native seed，不分发 FFmpeg、codec 可执行文件或剪映 DLL。运行前按 README 配置本机依赖。新版本先做读写 round-trip 和项目结构验证，不能把存在加密文本的 JSON 文件当普通 JSON 改写。工具不兼容时仍可交付已完成的旁白、PPT、预览和规范素材，但必须明确工程尚未验证。
+
+## 阶段交付
+
+第一阶段：旁白稿、分镜、资料与素材记录、`awaiting_narration` 项目状态。
+
+第二阶段：editable PPT、静音底片、含停顿旁白、独立演示片段、带旁白预览、可选 SRT，以及用户选择的 `package`、`local` 或 `both` 剪映交付。没有指定时先交付 package，不擅自修改本机草稿列表。
+
+用户给配音后要接着原项目做。用户要求改稿时修订相应阶段，更新所有受影响的时间和素材，并保留未修改部分。

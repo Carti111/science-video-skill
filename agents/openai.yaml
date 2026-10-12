@@ -1,0 +1,4 @@
+interface:
+  display_name: "世界模型科普视频"
+  short_description: "先交付旁白，配音后制作统一风格画面与可编辑剪映三轨草稿"
+  default_prompt: "使用 $world-model-video 制作一期世界模型科普视频，先查找官方演示素材并输出旁白稿。"

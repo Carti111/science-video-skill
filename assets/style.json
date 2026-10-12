@@ -1,0 +1,18 @@
+{
+  "width": 1280,
+  "height": 720,
+  "font": "微软雅黑",
+  "colors": {"background": "#15181D", "text": "#EDF1F5", "muted": "#AAB5C0", "cyan": "#4CD0DA", "orange": "#F4A367", "green": "#77D1AE"},
+  "title": {"left": 64, "top": 52, "width": 1136, "height": 68, "fontSize": 44},
+  "subtitle": {"left": 68, "top": 116, "width": 1136, "height": 36, "fontSize": 22},
+  "key": {"left": 64, "top": 180, "width": 390, "height": 144, "fontSize": 40},
+  "detail": {"left": 68, "top": 398, "width": 380, "height": 114, "fontSize": 27},
+  "singleVideo": {"left": 470, "top": 166, "width": 746, "height": 420},
+  "comparisonVideo": {"left": 64, "top": 280, "width": 1152, "height": 310},
+  "subtitleReservedHeight": 130,
+  "fadeSeconds": 0.4,
+  "holdStartSeconds": 1.5,
+  "holdEndSeconds": 1.05,
+  "holdAfterRevealSeconds": 0.65,
+  "fps": 30
+}
