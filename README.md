@@ -1,5 +1,7 @@
 # Science Video Skill
 
+当前正式版本：**[v1.0.0](https://github.com/Carti111/science-video-skill/releases/tag/v1.0.0)**。发布介绍见 [RELEASE_NOTES.md](RELEASE_NOTES.md)。
+
 把官方资料、旁白、PPT 图解和模型演示，整理成一条可以继续在剪映里调整的科普视频。
 
 这是一个 **Codex Skill**，不是一键生成视频的网站。目前主要围绕世界模型介绍设计：先交付文稿，用户完成配音后，再按真实音频制作同步画面和工程。仓库名是 `science-video-skill`，调用名仍为 **`$world-model-video`**。
